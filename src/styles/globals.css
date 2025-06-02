@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/Inter-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  }
+  
+  /* Add other font weights or styles if you have more font files, for example:
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600; 
+    font-display: swap;
+    src: url('/fonts/Poppins-SemiBold.ttf') format('truetype'); 
+  }
+  */
+
+  body {
+    @apply bg-brand-cream text-brand-charcoal font-sans antialiased;
+  }
+}
