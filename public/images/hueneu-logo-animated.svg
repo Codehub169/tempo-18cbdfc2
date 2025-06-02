@@ -1,0 +1,17 @@
+<svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    </style>
+  </defs>
+  <text x="10" y="35" font-family="'Poppins', sans-serif" font-size="24" font-weight="600" fill="#F6B352">
+    hue
+    <animate attributeName="opacity" from="0" to="1" dur="1s" begin="0.2s" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" values="0 5; 0 0" dur="0.8s" begin="0.2s" fill="freeze" additive="sum" />
+  </text>
+  <text x="70" y="35" font-family="'Poppins', sans-serif" font-size="24" font-weight="400" fill="#3A4750">
+    neu
+    <animate attributeName="opacity" from="0" to="1" dur="1s" begin="0.7s" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" values="0 5; 0 0" dur="0.8s" begin="0.7s" fill="freeze" additive="sum" />
+  </text>
+</svg>
