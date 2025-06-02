@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useScrollTrigger } from '@/hooks/useScrollTrigger';
+import useScrollTrigger from '@/hooks/useScrollTrigger';
 
 const services = [
   { name: 'Branding', icon: '/icons/branding.svg', copy: 'Branding, but make it bloom.' },
@@ -19,7 +19,10 @@ const ServiceItem = ({ service, index }) => {
       style={{ transitionDelay: `${isItemVisible ? index * 100 : 0}ms` }}
     >
       <div className="mb-6 w-16 h-16 relative text-brand-gold">
-        <Image src={service.icon} alt={`${service.name} icon`} layout="fill" className="filter-gold" />
+        {/* Removed filter-gold class as it's not defined in Tailwind config and its effect depends on SVG structure or custom CSS. 
+            If SVGs use 'currentColor' for fill/stroke, text-brand-gold on parent will color them. 
+            If SVGs are pre-colored, this class would need a CSS filter definition. */}
+        <Image src={service.icon} alt={`${service.name} icon`} layout="fill" />
       </div>
       <h3 className="font-display text-2xl font-semibold mb-3 text-brand-charcoal">{service.name}</h3>
       <p className="font-sans text-brand-charcoal/70 text-sm leading-relaxed">{service.copy}</p>

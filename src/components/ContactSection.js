@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useScrollTrigger } from '@/hooks/useScrollTrigger';
+import useScrollTrigger from '@/hooks/useScrollTrigger';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -75,7 +75,9 @@ const ContactSection = () => {
           onSubmit={handleSubmit} 
           noValidate // Prevent browser validation, rely on custom
           className="bg-white p-8 md:p-12 rounded-soft shadow-xl space-y-6 relative border-t-4 border-brand-gold"
-          style={{ fontFamily: `'Inter', sans-serif` }} // Emulate a 'note' feel
+          // The font-family is inherited from parent elements (Layout/main) which use font-sans (Inter).
+          // Explicitly setting it here is redundant but harmless.
+          // style={{ fontFamily: `'Inter', sans-serif` }}
         >
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-brand-charcoal mb-1">Full Name</label>
@@ -88,8 +90,9 @@ const ContactSection = () => {
               className={`w-full px-4 py-3 border rounded-soft focus:ring-brand-gold focus:border-brand-gold transition-colors ${errors.name ? 'border-red-500' : 'border-gray-300'}`} 
               aria-invalid={errors.name ? "true" : "false"}
               aria-describedby={errors.name ? "name-error" : undefined}
+              required // Good for non-JS fallback, though noValidate is used
             />
-            {errors.name && <p id="name-error" className="text-red-500 text-xs mt-1">{errors.name}</p>}
+            {errors.name && <p id="name-error" className="text-red-500 text-xs mt-1" role="alert">{errors.name}</p>}
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-brand-charcoal mb-1">Email Address</label>
@@ -102,8 +105,9 @@ const ContactSection = () => {
               className={`w-full px-4 py-3 border rounded-soft focus:ring-brand-gold focus:border-brand-gold transition-colors ${errors.email ? 'border-red-500' : 'border-gray-300'}`} 
               aria-invalid={errors.email ? "true" : "false"}
               aria-describedby={errors.email ? "email-error" : undefined}
+              required
             />
-            {errors.email && <p id="email-error" className="text-red-500 text-xs mt-1">{errors.email}</p>}
+            {errors.email && <p id="email-error" className="text-red-500 text-xs mt-1" role="alert">{errors.email}</p>}
           </div>
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-brand-charcoal mb-1">Your Message</label>
@@ -116,8 +120,9 @@ const ContactSection = () => {
               className={`w-full px-4 py-3 border rounded-soft focus:ring-brand-gold focus:border-brand-gold transition-colors ${errors.message ? 'border-red-500' : 'border-gray-300'}`} 
               aria-invalid={errors.message ? "true" : "false"}
               aria-describedby={errors.message ? "message-error" : undefined}
+              required
             ></textarea>
-            {errors.message && <p id="message-error" className="text-red-500 text-xs mt-1">{errors.message}</p>}
+            {errors.message && <p id="message-error" className="text-red-500 text-xs mt-1" role="alert">{errors.message}</p>}
           </div>
           
           <div className="text-center">
@@ -132,7 +137,7 @@ const ContactSection = () => {
 
           {status === 'success' && <p role="status" className="text-green-600 text-center mt-4">Message sent successfully! We’ll be in touch.</p>}
           {status === 'error' && errors.form && <p role="alert" className="text-red-600 text-center mt-4">{errors.form}</p>}
-          {status === 'validation_error' && Object.keys(errors).length > 0 && <p role="alert" className="text-red-600 text-center mt-4">Please correct the errors above.</p>}
+          {status === 'validation_error' && Object.keys(errors).filter(key => key !== 'form').length > 0 && <p role="alert" className="text-red-600 text-center mt-4">Please correct the errors above.</p>}
         </form>
 
         <div className="mt-12 text-center">

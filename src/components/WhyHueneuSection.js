@@ -1,4 +1,4 @@
-import { useScrollTrigger } from '@/hooks/useScrollTrigger';
+import useScrollTrigger from '@/hooks/useScrollTrigger';
 
 const WhyHueneuSection = () => {
   const [containerRef, isVisible] = useScrollTrigger({ threshold: 0.3, reset: false });
@@ -22,7 +22,7 @@ const WhyHueneuSection = () => {
             ref={text1Ref}
             className={`font-sans text-xl md:text-2xl leading-relaxed transition-all duration-1000 ease-in-out ${isText1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            We don	 just design	<span className="text-brand-gold">we decode stories</span>. Your narrative is our muse, guiding every color choice, every line drawn, every pixel placed.
+            We don't just design <span className="text-brand-gold">we decode stories</span>. Your narrative is our muse, guiding every color choice, every line drawn, every pixel placed.
           </p>
           <p 
             ref={text2Ref}

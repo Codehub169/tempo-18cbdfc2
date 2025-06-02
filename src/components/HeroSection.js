@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import ScrollIndicator from './ScrollIndicator'; // Assuming ScrollIndicator is in the same folder or adjust path
-import { useScrollTrigger } from '@/hooks/useScrollTrigger';
+import useScrollTrigger from '@/hooks/useScrollTrigger';
 
 const HeroSection = () => {
   const [heroRef, isHeroVisible] = useScrollTrigger({ threshold: 0.1, reset: false });
