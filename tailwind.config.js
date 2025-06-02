@@ -23,16 +23,16 @@ module.exports = {
         display: ['Poppins', 'sans-serif'], // Secondary: Geometric, playful personality for headings
       },
       animation: {
-        'logo-reveal': 'logoReveal 1.5s ease-out forwards',
+        // 'logo-reveal': 'logoReveal 1.5s ease-out forwards', // Removed as logo is now static and this animation is no longer used in HeroSection
         'scroll-indicator-bounce': 'bounceY 2s infinite alternate ease-in-out',
         'pop-out': 'popOut 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards',
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
       },
       keyframes: {
-        logoReveal: {
-          '0%': { opacity: 0, transform: 'translateY(30px) scale(0.95)' },
-          '100%': { opacity: 1, transform: 'translateY(0) scale(1)' },
-        },
+        // logoReveal: { // Removed as logo-reveal animation is no longer used
+        //   '0%': { opacity: 0, transform: 'translateY(30px) scale(0.95)' },
+        //   '100%': { opacity: 1, transform: 'translateY(0) scale(1)' },
+        // },
         bounceY: {
           '0%, 100%': { transform: 'translateY(-15%)' },
           '50%': { transform: 'translateY(0)' },
