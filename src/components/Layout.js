@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" /> {/* Placeholder, user might want a custom favicon */}
       </Head>
-      <main className="bg-mutedCream text-charcoal font-sans antialiased">
+      <main className="bg-brand-cream text-brand-charcoal font-sans antialiased">
         {children}
       </main>
     </>
