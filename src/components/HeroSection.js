@@ -14,7 +14,7 @@ const HeroSection = () => {
         className={`transition-opacity duration-1000 ease-in-out ${isHeroVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         {/* The animate-logo-reveal class was removed as the SVG is now static and tailwind.config.js removed the animation definition */}
-        <div className="mb-8 w-64 h-auto md:w-80"> 
+        <div className="mb-8 w-64 h-auto md:w-80 mx-auto"> 
           <Image 
             src="/images/hueneu-logo-animated.svg" 
             alt="hueneu logo" 
